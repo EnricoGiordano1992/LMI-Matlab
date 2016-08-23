@@ -9,7 +9,7 @@ s = tf('s');
 num = mu * Kp;
 den = Ms*s^2 + (Bs + Kv)*s + Kp;
 
-H = num / den;
+H = num / den
 
 discrete_sys = c2d(H, 0.001);
 
@@ -56,7 +56,8 @@ discrete_sys = c2d(H, 0.001);
 
 disp('Ym(s) Model:')
 
-ss(discrete_sys)
+[A, B, C, D] = ssdata(ss(H))
+
 
 %{
 
