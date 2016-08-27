@@ -8,6 +8,7 @@ diagnostics = solvesdp(F)
 disp(diagnostics.problem)
 if diagnostics.problem == 0
  disp('Feasible')
+ solution = value(P)
 elseif diagnostics.problem == 1
  disp('Infeasible')
 else
