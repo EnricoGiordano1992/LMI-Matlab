@@ -1,5 +1,5 @@
 %A is given by admittance_to_state_matrix.m
-P = sdpvar(4,4);
+P = sdpvar(1,1);
 
 F = [P >= 0, A'*P+P*A <= 0];
 
