@@ -30,14 +30,14 @@
 % [A, B, C, D] = ssdata(ss(Y))
 
 
-mu = 0.01;
-Kf = 1;
+%mu = 0.01;
+%Kf = 1;
 Ms = 0.61;
 Bs = 11;
-Kv = 87.8;
-Kp = 4000;
+Kv = 40;
+Kp = 40;
 Mm = 0.64;
-Bm = 0.64;
+Bm = 12;
 
 s = tf('s');
 
@@ -50,8 +50,11 @@ Qs = -Kp -Kv*s;
 %Fm = Xs*Gs + Xm*Qs
 
 det_z = Gm*Gs - Qm*Qs;
-Z = [Gs Qm; Qs Gm];
+Z = [Gs -Qm; -Qs Gm];
 Y = 1/det_z * [Gs -Qm; -Qs Gm];
-Ys = s * Y;
+%Y = Z^(-1);
+Y_vf = s * Y;
 
-[A, B, C, D] = ssdata(ss(Y))
+%[A, B, C, D] = ssdata(ss(Y))
+[A, B, C, D] = ssdata(ss(ss(Y_vf), 'min'))
+%[A, B, C, D] = ssdata(ss(Z))

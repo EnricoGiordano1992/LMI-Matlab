@@ -1,4 +1,4 @@
-mu = 0.01;
+mu = 1;
 Kf = 1;
 Ms = 0.61;
 Bs = 11;
@@ -7,7 +7,7 @@ Kp = 4000;
 
 s = tf('s');
 
-num = mu * Kp;
+num = mu * Kp * s;
 den = Ms*s^2 + (Bs + Kv)*s + Kp;
 
 Ys = num / den
