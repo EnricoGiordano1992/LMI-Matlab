@@ -6,8 +6,9 @@
 \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
 \definecolor{mylilas}{RGB}{170,55,241}
 
-\title{Formule LMI}
+\title{Formule LMI con codice Matlab YALMIP}
 \author{Enrico Giordano }
+\date{}
 
 \begin{document}
 
@@ -57,43 +58,54 @@ e = \begin{bmatrix}
 \end{bmatrix} x
 \end{equation}
 
-Codice:
+\subsection{Valori scelti}
+
+$$M_{s} = 0.61$$
+$$B_{s} = 11$$
+$$K_{v} = 40$$
+$$K_{p} = 40$$
+$$M_{m} = 0.64$$
+$$B_{m} = 12$$
+
+
+\subsection{Codice}
+
 \begin{lstlisting}[language=Matlab]  % Start your code-block
+Ms = 0.61;
+Bs = 11;
+Kv = 40;
+Kp = 40;
+Mm = 0.64;
+Bm = 12;
 
 A = [0 1 0 0; 0 (-Bm/Mm) 0 0; 0 0 0 1; 0 0 0 -(Bs/Ms)];
 B = [0 0; 1/Mm 0; 0 0; 0 1/Ms];
 B0 = [0 0; 1/Mm 0; 0 0; 0 1/Ms];
 C0 = [1 0 -1 0; 0 1 0 -1];
 C = [0 1 0 0; 0 0 0 1];
-
 \end{lstlisting}
 
 
-\section{Passività}
+\section{Passività 2x2}
 
-\begin{equation*}
-
+\begin{equation}
+%
 \begin{bmatrix} QA^{T} + M^{T}B^{T}+AQ+BM & B-QC^{T} \\ B^{T}-CQ & 0
 \end{bmatrix}\quad \prec 0
+%
+\end{equation}
 
-~
-
+\begin{equation}
+%
 Q \succ 0
+%
+\end{equation}
 
-\end{equation*}
+$$K = MP = MQ^{-1}$$
 
-Equazioni:
-\begin{equation*}
 
-Q = P^{-1}
+\subsection{Codice}
 
-M = KP^{-1}
-
-K = MP = MQ^{-1}
-
-\end{equation*}
-
-Codice:
 
 \begin{lstlisting}[language=Matlab]  % Start your code-block
 
@@ -123,32 +135,66 @@ end
 \end{lstlisting}
 
 
+
+\section{Passività 3x3}
+
+\begin{equation}
+%
+\begin{bmatrix} I & 0 \\ A & B \\ C & D
+\end{bmatrix}^{T}\quad \begin{bmatrix} 0 & X & 0 \\ X & 0 & 0 \\ 0 & 0 & P
+\end{bmatrix}\quad \begin{bmatrix} I & 0 \\ A & B \\ C & D
+\end{bmatrix}^{T}\quad \succ 0
+%
+\end{equation}
+
+\begin{equation}
+Q \succ 0
+\end{equation}
+
+
+\subsection{Codice}
+
+\begin{lstlisting}[language=Matlab]  % Start your code-block
+
+n = size(A,1)
+p = size(B,2)
+P = sdpvar(size(A,1),size(A,1), 'symmetric');
+
+F = [P >= 0, [[eye(n,n) zeros(n,p);A B; C D]'*[zeros(n,n) P zeros(n,p); P zeros(n,n) zeros(n,p); zeros(p,n) zeros(p,n) eye(p,p)]*[eye(n,n) zeros(n,p);A B; C D]] >= 0];
+
+diagnostics = solvesdp(F)
+disp(diagnostics.problem)
+if diagnostics.problem == 0
+ disp('Feasible')
+ solution = value(P)
+elseif diagnostics.problem == 1
+ disp('Infeasible')
+else
+ disp('Something else happened')
+end
+
+\end{lstlisting}
+
+
 \section{Sintesi}
 
-\begin{equation*}
-
+\begin{equation}
+%
 \begin{bmatrix} (AY + BM)^{T} + (AY + BM) & B_0 & (C_{0}Y + EM)^{T} \\ B_{0}^{T} & \gamma^{2}I & D_{0}^{T} \\ (C_{0}Y + EM) & D_{0} & -I  
 \end{bmatrix}\quad \prec 0
+%
+\end{equation}
 
-~
-
+\begin{equation}
 Y \succ 0
+\end{equation}
 
-\end{equation*}
-
-Equazioni:
-\begin{equation*}
-
-D_c = K
-
-E = 0
-
-D_0 = 0
-
-\end{equation*}
+$$D_c = K$$
+$$E = 0$$
+$$D_0 = 0$$
 
 
-Codice:
+\subsection{Codice}
 
 
 \begin{lstlisting}[language=Matlab]
@@ -162,10 +208,9 @@ M = sdpvar(q,p);
 K = sdpvar(q,p);
 E = zeros(q,q);
 D0 = E;
-%Acl = A + B*K;
 Acl = A;
 
-gamma = 0.001;%0.000041;
+gamma = 0.001;% valore piu' piccolo possibile (es: 0.000041)
 
 b11 = (A*Q + B*M)'+(A*Q + B*M);
 b12 = B0;
@@ -179,7 +224,7 @@ b33 = -eye(2);
 
 LMI = [b11 b12 b13; b21 b22 b23; b31 b32 b33];
 
-F = [Q >= 0, LMI1 <=0];
+F = [Q >= 0, LMI <=0];
 
 
 \end{lstlisting}
@@ -213,10 +258,9 @@ M = sdpvar(q,p);
 K = sdpvar(q,p);
 E = zeros(q,q);
 D0 = E;
-%Acl = A + B*K;
 Acl = A;
 
-gamma = 0.001;%0.000041;
+gamma = 0.001;% valore piu' piccolo possibile (es: 0.000041)
 
 b11 = (A*Q + B*M)'+(A*Q + B*M);
 b12 = B0;

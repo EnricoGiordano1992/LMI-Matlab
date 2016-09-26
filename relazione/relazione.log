@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.8.22)  26 SEP 2016 18:51
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.8.22)  26 SEP 2016 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -346,23 +346,23 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count107
 ))
-No file relazione.aux.
+(./relazione.aux)
 \openout1 = `relazione.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
 \c@lstlisting=\count108
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count109
 \scratchdimen=\dimen116
@@ -378,321 +378,56 @@ LaTeX Font Info:    ... okay on input line 12.
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2013/08/26 1.5b listings language file
 )
-Overfull \hbox (12.17429pt too wide) detected at line 51
+Overfull \hbox (12.17429pt too wide) detected at line 52
 [] \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 x \OT1/cmr/m/n/10 + [] \OML/cmm/m/it/1
 0 u \OT1/cmr/m/n/10 + [] []
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.75 
-     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.75 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.76 \begin{bmatrix}
-                     QA^{T} + M^{T}B^{T}+AQ+BM & B-QC^{T} \\ B^{T}-CQ & 0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.77 \end{bmatrix}
-                  \quad \prec 0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.77 \end{bmatrix}\quad \prec
-                              0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.78 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.81 Q \succ
-             0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.82 
-     
-? 
 
-! LaTeX Error: Bad math environment delimiter.
+Package Listings Warning: Text dropped after begin of listing on input line 74.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.83 \end{equation*}
-                    
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.83 \end{equation*}
-                    
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.83 \end{equation*}
-                    
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.87 
-     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.87 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.88 Q = P^
-           {-1}
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.89 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.90 M = KP^
-            {-1}
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.91 
-     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.92 K = MP = MQ^
-                 {-1}
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.93 
-     
-? 
 
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.94 \end{equation*}
-                    
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.94 \end{equation*}
-                    
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.94 \end{equation*}
-                    
-? 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 100.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 100.
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 107.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 119.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 107.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.129 
-      
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.129 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.130 \begin{bmatrix}
-                      (AY + BM)^{T} + (AY + BM) & B_0 & (C_{0}Y + EM)^{T} \\...
-
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.131 \end{bmatrix}
-                   \quad \prec 0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.131 \end{bmatrix}\quad \prec
-                               0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.132 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.135 Y \succ
-              0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.136 
-      
-? 
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.137 \end{equation*}
-                     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.137 \end{equation*}
-                     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.137 \end{equation*}
-                     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.141 
-      
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.141 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.142 D_
-        c = K
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.143 
-      
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.146 D_
-        0 = 0
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.147 
-      
-? 
-
-! LaTeX Error: Bad math environment delimiter.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.148 \end{equation*}
-                     
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.148 \end{equation*}
-                     
-? 
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.148 \end{equation*}
-                     
-? 
-[2] [3] [4] [5] (./relazione.aux) ) 
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 119.
+ [2] [3] [4] [5]
+(./relazione.aux) ) 
 Here is how much of TeX's memory you used:
- 4175 strings out of 493304
- 51496 string characters out of 6139871
- 262783 words of memory out of 5000000
- 7632 multiletter control sequences out of 15000+600000
- 8408 words of font info for 31 fonts, out of 8000000 for 9000
+ 4186 strings out of 493304
+ 51602 string characters out of 6139871
+ 251220 words of memory out of 5000000
+ 7641 multiletter control sequences out of 15000+600000
+ 8715 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 27i,8n,40p,268b,1654s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on relazione.pdf (5 pages, 118695 bytes).
+ 27i,7n,40p,268b,1638s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb>
+Output written on relazione.pdf (5 pages, 122670 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
