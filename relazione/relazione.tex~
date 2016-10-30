@@ -93,7 +93,9 @@ C = [0 1 0 0; 0 0 0 1];
 \begin{bmatrix} QA^{T} + M^{T}B^{T}+AQ+BM & B-QC^{T} \\ B^{T}-CQ & 0
 \end{bmatrix}\quad \prec 0
 %
-~
+\end{equation}
+
+\begin{equation}
 %
 Q \succ 0
 %
@@ -178,7 +180,7 @@ end
 
 \begin{equation}
 %
-\begin{bmatrix} (AY + BM)^{T} + (AY + BM) & B_0 & (C_{0}Y + EM)^{T} \\ B_{0}^{T} & \gamma^{2}I & D_{0}^{T} \\ (C_{0}Y + EM) & D_{0} & -I  
+\begin{bmatrix} (AY + BM)^{T} + (AY + BM) & B_0 & (C_{0}Y + EM)^{T} \\ B_{0}^{T} & -\gamma^{2}I & D_{0}^{T} \\ (C_{0}Y + EM) & D_{0} & -I  
 \end{bmatrix}\quad \prec 0
 %
 \end{equation}
