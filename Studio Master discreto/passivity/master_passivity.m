@@ -7,7 +7,7 @@ A = [0 1; 0 -Bm/Mm];
 B = [0; 1/Mm];
 C = [1 0; 0 1];
 D = [0; 0];
-C0 = [1 20];
+C0 = [1 10];
 B0 = [0; 1/Mm];
 
 n = size(A,1)
@@ -21,31 +21,14 @@ E = zeros(q,q);
 D0 = E;
 Acl = A;
 
-gamma =1;%0.000041;
-
-b11 = (A*Q + B*M)'+(A*Q + B*M);
-b12 = B0;
-b13 = (C0*Q + E*M)';
-b13 = (C0*Q)';
-b21 = B0';
-b22 = -gamma^2 * eye(q);
-b23 = D0';
-b31 = (C0*Q + E*M);
-b31 = (C0*Q);
-b32 = D0;
-b33 = -eye(q);
-
-LMI1 = [b11 b12 b13; b21 b22 b23; b31 b32 b33];
-
-
 BlockUpLeft = Q*Acl'+M'*B'+Acl*Q+B*M;
-BlockUpRight = B-Q*C0';
-BlockDownLeft = B'-C0*Q;
+BlockUpRight = B-Q*C';
+BlockDownLeft = B'-C*Q;
 BlockDownRight = zeros(size(BlockUpRight, 2), size(BlockDownLeft, 1));
 
 LMI2 = [BlockUpLeft BlockUpRight; BlockDownLeft BlockDownRight];
 
-F = [Q >= 0, LMI1 <=0, LMI2 <= 0];
+F = [Q >= 0, LMI2 <=0];
 
 diagnostics = solvesdp(F);
 disp(diagnostics.problem);
