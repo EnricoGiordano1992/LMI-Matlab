@@ -21,7 +21,7 @@ E = zeros(q,q);
 D0 = E;
 Acl = A;
 
-gamma =1;%0.000041;
+gamma =2.2;%0.000041;
 
 b11 = (A*Q + B*M)'+(A*Q + B*M);
 b12 = B0;
