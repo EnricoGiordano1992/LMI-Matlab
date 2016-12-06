@@ -26,31 +26,31 @@ Az22 = [eye(n_delay+1,n_delay)];
 
 A_z = [Az1; Az21 Az22];
 
-B_z=[zeros(size(A_z,1)-1,1); 1]
-C_z=[dsys.c zeros(size(dsys.c,1),n_delay+1)]
+B_z=[zeros(size(A_z,1)-1,1); 1];
+C_z=[dsys.c zeros(size(dsys.c,1),n_delay+1)];
 
 A_nodelay = dsys.a;
 B_nodelay  = dsys.b;
 C_nodelay  = dsys.c;
 D_nodelay  = dsys.d;
 
-%A = A_z;
-%Bu = B_z;
-%Bw = B_z;
-%Cy = C_z;
-%Dyw = dsys.d;
-%Cz = [0 10 zeros(1, size(A,2)-2)];
-%Dzw = [zeros(size(Bu,2))];
-%Dzu = [zeros(size(Bu,2))];
+A = A_z;
+Bu = B_z;
+Bw = B_z;
+Cy = C_z;
+Dyw = dsys.d;
+Cz = [0 10 zeros(1, size(A,2)-2)];
+Dzw = [zeros(size(Bu,2))];
+Dzu = [zeros(size(Bu,2))];
 
-A = A_nodelay;
-Bu = B_nodelay;
-Bw = B_nodelay;
-Cy = [1 0];
-Dyw = 0;
-Cz = [1 0];
-Dzw = 0;
-Dzu = 0;
+%A = A_nodelay;
+%Bu = B_nodelay;
+%Bw = B_nodelay;
+%Cy = [1 0];
+%Dyw = 0;
+%Cz = [1 0];
+%Dzw = 0;
+%Dzu = 0;
 
 
 dsys_delay = ss(A, Bu, Cy, 0, Ts);
@@ -65,72 +65,62 @@ u = size(Cy,2);
 
 P = sdpvar(n,n, 'symmetric');
 H = sdpvar(n,n, 'symmetric');
-L = sdpvar(q,n);
+W = sdpvar(q,q, 'symmetric');
+L = sdpvar(q,n); 
 F = sdpvar(n,t); 
 Q = sdpvar(n,n); 
-R = sdpvar(q,t);
+R = sdpvar(q,t); 
 S = sdpvar(n,n); 
 J = sdpvar(n,n); 
-X = sdpvar(n,n);
+X = sdpvar(n,n); 
 Y = sdpvar(n,n); 
+
+lmi11 = [W Cz*X+Dzu*L Cz+Dzu*R*Cy];
+lmi12 = [(Cz*X+Dzu*L)' X+X'-P eye(size(S))+S'-J];
+lmi13 = [(Cz+Dzu*R*Cy)' (eye(size(S))+S'-J)' Y+Y'-H];
+
+LMI1 = [lmi11; lmi12; lmi13];
 
 b11 = P;
 b12 = J;
 b13 = A*X+Bu*L;
 b14 = A+Bu*R*Cy;
 b15 = Bw+Bu*R*Dyw;
-b16 = zeros(n,q);
-
-bb1 = [b11 b12 b13 b14 b15 b16];
 
 b21 = b12';
 b22 = H;
 b23 = Q;
 b24 = Y*A+F*Cy;
 b25 = Y*Bw+F*Dyw;
-b26 = zeros(n,q);
-
-bb2 = [b21 b22 b23 b24 b25 b26];
 
 b31 = b13';
 b32 = b23';
 b33 = X+X'-P;
-b34 = eye(n,n)+S'-J;
-b35 = zeros(n,q);
-b36 = X'*Cz'+L'*Dzu';
-
-bb3 = [b31 b32 b33 b34 b35 b36];
+b34 = eye(size(S))+S'-J;
+b35 = zeros(size(S,1), size(b15,2));
 
 b41 = b14';
 b42 = b24';
 b43 = b34';
 b44 = Y+Y'-H;
-b45 = zeros(n,q);
-b46 = Cz'+Cy'*R'*Dzu';
-
-bb4 = [b41 b42 b43 b44 b45 b46];
+b45 = zeros(size(b44,1), size(b15,2));
 
 b51 = b15';
 b52 = b25';
 b53 = b35';
 b54 = b45';
-b55 = eye(q,q);
-b56 = Dzw'+Dyw'*R'*Dzu';
+b55 = eye(size(b54,1), size(b15,2));
 
-bb5 = [b51 b52 b53 b54 b55 b56];
 
-b61 = b16';
-b62 = b26';
-b63 = b36';
-b64 = b46';
-b65 = b56';
-b66 = mu*eye(q,q);
+lmi21 = [b11 b12 b13 b14 b15];
+lmi22 = [b21 b22 b23 b24 b25];
+lmi23 = [b31 b32 b33 b34 b35];
+lmi24 = [b41 b42 b43 b44 b45];
+lmi25 = [b51 b52 b53 b54 b55];
 
-bb6 = [b61 b62 b63 b64 b65 b66];
+LMI2 = [lmi21; lmi22; lmi23; lmi24; lmi25];
 
-LMI = [bb1; bb2; bb3; bb4; bb5; bb6];
-
-res = [X >= 0, Y >= 0, S >= 0, R >= 0, LMI >=0];
+res = [X >= 0, Y >= 0, S >= 0, R >= 0, LMI1 >=0 LMI2 >= 0, trace(W) <= mu, Dzw+Dzu*R*Dyw==0];
 
 diagnostics = solvesdp(res);
 disp(diagnostics.problem);

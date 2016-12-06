@@ -23,10 +23,6 @@ phi = dsys.a;
 gamma1 = dsys.b;
 gamma2 = zeros(size(dsys.b,1), size(dsys.b,2));
 
-%A_z=[phi gamma1 gamma2                                       zeros(size(dsys.b,1), n_delay-1)
-%     zeros(n_delay, size(phi,2)+size(gamma1,2)+size(gamma2,2)) eye(n_delay) 
-%     zeros(1,  size(phi,2)+size(gamma1,2)+size(gamma2,2)+n_delay) ]
-
 Az1 = [phi gamma1 gamma2 zeros(size(dsys.b,1), n_delay-1)];
 Az21 = [zeros(n_delay+1,size(dsys.a,2)+size(dsys.b,2))];
 Az22 = [eye(n_delay+1,n_delay)];
